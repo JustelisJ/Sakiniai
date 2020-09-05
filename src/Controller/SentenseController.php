@@ -19,7 +19,7 @@
             $sakinys = new Sakinys();
             $suformuoluotasSakinys = $sakinys->formuotiSakini($seed);
             return new Response(
-                '<html><body>'.$suformuoluotasSakinys.'</body></html>'
+                '<html><body>' . $suformuoluotasSakinys .'</body></html>'
             );
         }
 

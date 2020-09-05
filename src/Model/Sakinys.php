@@ -5,7 +5,7 @@
 
         public function formuotiSakini($seed)
         {
-            $budvardziai = array("gauruotas", "išsipūtęs", "plaukuotas", "lėtas", "aukštielninka", "supuvusi", "išverstaakė", "pasišiaušusi");
+            $budvardziai = array("gauruotas", "išsipūtęs", "plaukuotas", "lėta", "aukštielninka", "supuvusi", "išverstaakė", "pasišiaušusi", "gleivėta");
             $daiktavardziai = array("rupūžė", "karvė", "šliužas", "žaltys", "velnias", "gaidys");
             $sakinys = "";
             $randValue = self::stringConverterToInt($seed);
@@ -49,19 +49,20 @@
             return $charValueSum;
         }
 
-        //Pakeicia budvardzio gimine(Pradinis variantas, tinka tik su dabartiniais budvardziai, bet ne su visais)
+        //Pakeicia budvardzio gimine(Pradinis variantas, tinka tik su dabartiniais budvardziai, bet ne su visais) (Problemos su lietuviskomis raidemis)
+        //Kazkodel viena lietuviska raide skaito kaip 2 characterius
         private function budvardzioGiminesKeitimas($gim, $budv)
         {
             $paskutines_2_raides = substr($budv, -2);
             if($gim == 'V')
             {
-                if(strcmp($paskutines_2_raides, "a") == 0)
+                if(strcmp($paskutines_2_raides[1], "a") == 0)
                 {
                     $budv = $budv . "s";
                 }
-                if(strcmp($paskutines_2_raides, "ė") == 0)
+                if(strcmp($paskutines_2_raides[1], "ė") == 0)
                 {
-                    $budv = substr($budv, 0, -1) . "is";
+                    $budv = substr($budv, 0, -2) . "is";
                 }
                 if(strcmp($paskutines_2_raides, "si") == 0)
                 {
@@ -84,7 +85,6 @@
                 }
             }
 
-            //return strcmp($paskutines_2_raides, "ęs");
             return $budv;
         }
     }
