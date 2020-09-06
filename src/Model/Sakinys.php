@@ -5,7 +5,7 @@
 
         public function formuotiSakini($seed)
         {
-            $budvardziai = array("gauruotas", "išsipūtęs", "plaukuotas", "lėta", "aukštielninka", "supuvusi", "išverstaakė", "pasišiaušusi", "gleivėta");
+            $budvardziai = array("gauruotas", "išsipūtusi", "plaukuotas", "lėta", "aukštielninka", "supuvusi", "išverstaakis", "pasišiaušusi", "gleivėta");
             $daiktavardziai = array("rupūžė", "karvė", "šliužas", "žaltys", "velnias", "gaidys", "ožka", "kalė");
             $sakinys = "";
             $randValue = self::stringConverterToInt($seed);
@@ -50,7 +50,7 @@
         }
 
         //Pakeicia budvardzio gimine(Pradinis variantas, tinka tik su dabartiniais budvardziai, bet ne su visais) (Problemos su lietuviskomis raidemis)
-        //Kazkodel viena lietuviska raide skaito kaip 2 characterius
+        //Kazkodel viena lietuviska raide skaito kaip 2 characterius(Neveikia jei viena is paskutiniu raidziu yra lietuviska raide)
         private static function budvardzioGiminesKeitimas($gim, $budv)
         {
             $paskutines_2_raides = substr($budv, -2);
